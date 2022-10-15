@@ -1,3 +1,6 @@
+from itertools import count
+
+
 def mode(nums):
     """Return most-common number in list.
 
@@ -11,3 +14,17 @@ def mode(nums):
         >>> mode([2, 2, 3, 3, 2])
         2
     """
+
+    checked = []
+    count = 0
+    mode = None
+
+    for num in nums:
+        if num not in checked:
+            if nums.count(num) > count:
+                count = nums.count(num)
+                mode = num
+
+    return mode
+
+
